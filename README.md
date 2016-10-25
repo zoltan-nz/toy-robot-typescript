@@ -1,3 +1,5 @@
+Local packages:
+
 ```
 yarn add --dev 
   typescript 
@@ -10,6 +12,17 @@ yarn add --dev
   rollup-plugin-istanbul
   rollup-watch
   rollup-plugin-json
+  typings
+  rollup-plugin-multi-entry
+```
+
+Global packages:
+```
+yarn global add
+  typings
+  eslint
+  mocha
+```
 
 ## Rollup
 
@@ -33,11 +46,22 @@ Entry point: `/src/main.ts`
 
 `tsconfig.json`
 
-# ESlint and TSlint
+Add Mocha Type Definitions:
+
+```
+$ typings install dt~mocha --global --save
+```
+
+$ yarn global add tsd
+
+## ESlint and TSlint
 
 Packages:
-* 
+* eslint
 
+```
+eslint --init
+```
 
 ## Testing
 

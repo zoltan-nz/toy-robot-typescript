@@ -1,8 +1,7 @@
 {
-  "files": [
-    "src/main.ts"
-  ],
+  "compileOnSave": true,
   "compilerOptions": {
+    "outDir": "./dist",
     "noImplicitAny": true,
     "target": "es5"
   }

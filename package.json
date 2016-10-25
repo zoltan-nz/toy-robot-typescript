@@ -2,9 +2,6 @@
   "name": "toy-robot",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/toy-robot.js",
-  "module": "dist/toy-robot.mjs",
-  "jsnext:main": "dist/toy-robot.mjs",
   "scripts": {
     "prebuild": "eslint src test",
     "build": "rollup -c",
@@ -38,9 +35,10 @@
     "rollup-plugin-eslint": "^3.0.0",
     "rollup-plugin-istanbul": "^1.1.0",
     "rollup-plugin-json": "^2.0.2",
+    "rollup-plugin-multi-entry": "^2.0.1",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-watch": "^2.5.0",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0"
   }
 }
-
