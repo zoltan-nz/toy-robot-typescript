@@ -1,8 +1,19 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
-    "outDir": "./dist",
+    "declaration": true,
+    "outDir": "./lib",
+    "sourceMap": true,
     "noImplicitAny": true,
-    "target": "es5"
-  }
+    "module": "commonjs",
+    "moduleResolution": "node"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*-test.ts"
+  ],
+  "compileOnSave": true
 }
+
