@@ -18,7 +18,8 @@
     "prebuild": "npm run lint",
     "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty",
     "pretest": "npm run build",
-    "test": "mocha --compilers ts:ts-node/register --recursive test/**/*-test.ts",
+    "test": "mocha --compilers ts:ts-node/register --recursive tests/**/*/*-test.ts",
+    "onlyTest": "mocha --compilers ts:ts-node/register --recursive tests/**/*/*-test.ts",
     "prepublish": "npm test",
     "watch": "npm run build -- --watch",
     "watch:test": "npm run test -- --watch"
@@ -49,3 +50,4 @@
     "node": ">=4.0.0"
   }
 }
+
