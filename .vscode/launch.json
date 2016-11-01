@@ -17,11 +17,19 @@
       "port": 9229
     },
     {
-      "name": "Launch Test",
+      "name": "Run mocha test",
       "type": "node2",
       "request": "launch",
-      "program": "${workspaceRoot}/lib/main.js",
+      "program": "${workspaceRoot}/node_modules/.bin/_mocha",
       "cwd": "${workspaceRoot}"
     },
+    {
+      "name": "Run mocha test with watch",
+      "type": "node2",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/.bin/_mocha",
+      "args": ["--watch"],
+      "cwd": "${workspaceRoot}"
+    }
   ]
 }

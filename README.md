@@ -132,6 +132,25 @@ In `package.json`:
 * Doesn't need `typings`, because TypeScript 2 manages it automatically, however we have to install declaration file as node modules.
 * Search on: https://microsoft.github.io/TypeSearch/, for example search for `sinon-chai`.
 
+### Test with mocha Notes
+
+* Mocha default test folder is `./test`
+* Settings can be saved in `mocha.opts`, so a simple `mocha` command can run all the test
+* Debug mocha:
+
+```json
+// launch.json
+    {
+      "name": "Run mocha test",
+      "type": "node2",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/.bin/_mocha",
+      "cwd": "${workspaceRoot}"
+    }
+```
+
+* `Chai` is a simple expectation library [web](http://chaijs.com/guide/styles/#expect)
+
 # Toy Robot Simulator
 
 [Original example](https://github.com/DiscoverRedwolf/toyrobot)
