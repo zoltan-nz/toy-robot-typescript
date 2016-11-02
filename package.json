@@ -30,7 +30,10 @@
   "typings": "lib/main.js",
   "main": "lib/main.js",
   "bin": "lib/main.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/lodash": "^4.14.38",
+    "lodash": "^4.16.6"
+  },
   "devDependencies": {
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.32",

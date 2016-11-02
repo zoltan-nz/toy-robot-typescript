@@ -190,3 +190,12 @@ Example Input and Output:
 * `PLACE 0,0,NORTH MOVE REPORT` Output: `0,1,NORTH`
 * `PLACE 0,0,NORTH LEFT REPORT` Output: `0,0,WEST`
 * `PLACE 1,2,EAST MOVE MOVE LEFT MOVE REPORT` Output: `3,3,NORTH`
+
+TODO:
+
+- [] Create a Table top class
+- [] Draw table top in console
+- [] Create a Robot class
+- [] Move robot on Table with arrow keys
+- [] Read the console for commands
+- [] Parsing commands and control robot

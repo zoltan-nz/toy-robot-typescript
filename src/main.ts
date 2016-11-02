@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 
-import { sayHello } from './greet';
 import Robot from './robot';
+import Table from './table';
 
 export function main() {
-  console.log(sayHello('TypeScript')); // tslint:disable-line:no-console
 
-  const robyTheRobot = new Robot('Roby');
-  console.log(robyTheRobot.introduceYourself()); // tslint:disable-line:no-console
+  const table = new Table();
+
+  console.log('Hello');
+
+  console.log(table.content);
+  console.log(table.width);
+  console.log(table.height);
+
 }
 
 main();
