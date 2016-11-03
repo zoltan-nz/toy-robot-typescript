@@ -199,3 +199,9 @@ TODO:
 - [] Move robot on Table with arrow keys
 - [] Read the console for commands
 - [] Parsing commands and control robot
+
+
+### Notes
+
+* Add lodash to the project
+* Useful lodash methods: flattenDeep, sum, fill

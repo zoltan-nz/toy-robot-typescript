@@ -12,6 +12,8 @@ export function main() {
   console.log(table.content);
   console.log(table.width);
   console.log(table.height);
+  console.log(table.isBorder(3,3));
+  console.log(table.isBorder(3,4));
 
 }
 
