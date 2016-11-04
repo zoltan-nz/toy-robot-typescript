@@ -4,14 +4,8 @@ export default class Table {
 
   public content: number[][];
 
-  public height: number;
-  public width: number;
-
-  constructor(height: number = 5, width: number = height) {
+  constructor(public height: number = 5, public width: number = height) {
     this.content = fill(Array(height), fill(Array(width), 0));
-
-    this.height = height;
-    this.width = width;
   }
 
   public isBorder(y: number, x: number): boolean {

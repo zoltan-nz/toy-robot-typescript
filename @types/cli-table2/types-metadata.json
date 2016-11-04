@@ -1,0 +1,25 @@
+{
+  "authors": "",
+  "definitionFilename": "index.d.ts",
+  "libraryDependencies": [],
+  "moduleDependencies": [],
+  "libraryMajorVersion": "0",
+  "libraryMinorVersion": "2",
+  "libraryName": "cli-table2 0.2.0",
+  "typingsPackageName": "cli-table2",
+  "projectName": "",
+  "sourceRepoURL": "",
+  "sourceBranch": "",
+  "kind": "UMD",
+  "globals": [
+    "Table"
+  ],
+  "declaredModules": [
+    "cli-table2"
+  ],
+  "files": [
+    "index.d.ts"
+  ],
+  "hasPackageJson": false,
+  "contentHash": ""
+}

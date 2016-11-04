@@ -5,10 +5,12 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "typeRoots": ["node_modules/@types", "@types"]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "declarations"
   ],
   "exclude": [
     "node_modules",

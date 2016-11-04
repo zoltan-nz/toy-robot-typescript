@@ -27,15 +27,15 @@
   "files": [
     "lib"
   ],
-  "typings": "lib/main.js",
   "main": "lib/main.js",
   "bin": "lib/main.js",
   "dependencies": {
-    "@types/lodash": "^4.14.38",
+    "cli-table2": "^0.2.0",
     "lodash": "^4.16.6"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",
+    "@types/lodash": "^4.14.38",
     "@types/mocha": "^2.2.32",
     "@types/node": "^6.0.46",
     "@types/sinon": "^1.16.31",

@@ -40,13 +40,11 @@ $ yarn add --dev @types/chai @types/mocha @types/node @types/sinon-chai
   "include": [
     "src/**/*"
   ],
-  "exclude": [
-    "node_modules",
-    "**/*-test.ts"
-  ],
   "compileOnSave": true
 }
 ```
+
+* The `exclude` property only affects the files included via the `include` property.
 
 ### Setup `tslint.json`
 
@@ -193,15 +191,32 @@ Example Input and Output:
 
 TODO:
 
-- [] Create a Table top class
-- [] Draw table top in console
-- [] Create a Robot class
-- [] Move robot on Table with arrow keys
-- [] Read the console for commands
-- [] Parsing commands and control robot
+- [x] Create a Table top class
+- [ ] Draw table top in console
+- [ ] Create a Robot class
+- [ ] Move robot on Table with arrow keys
+- [ ] Read the console for commands
+- [ ] Parsing commands and control robot
 
 
 ### Notes
 
 * Add lodash to the project
 * Useful lodash methods: flattenDeep, sum, fill
+* Add nice table presentation in console: [cli-table]()https://github.com/jamestalmage/cli-table2)
+
+Dealing with non-typed packages:
+
+* https://github.com/Microsoft/TypeScript/issues/9184
+* Create a `@types` folder for type definitions
+* Extend `tsconfig.json` with `"typeRoots": ["@types"]` to `compilerOptions`
+
+```
+declare class SomeClass {
+  constructor(options?: Object);
+}
+
+declare module 'module_name' {
+  export = SomeClass
+}
+```
