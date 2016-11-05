@@ -7,7 +7,7 @@ export function main() {
   const tableTop = new TableTop();
   let table = new Table();
 
-  table.push(tableTop.content);
+  tableTop.content.forEach(row => table.push(row));
   console.log(table.toString());
 }
 
