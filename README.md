@@ -192,7 +192,7 @@ Example Input and Output:
 TODO:
 
 - [x] Create a Table top class
-- [ ] Draw table top in console
+- [x] Draw table top in console
 - [ ] Create a Robot class
 - [ ] Move robot on Table with arrow keys
 - [ ] Read the console for commands
@@ -220,3 +220,18 @@ declare module 'module_name' {
   export = SomeClass
 }
 ```
+
+### Robot
+
+Requirements:
+* Robot exists (creating an instance)
+* Robot can turn LEFT, RIGHT (actions)
+* Robot instance stores the direction where its facing (state holder)
+
+Implementation notes:
+* Using interface for options
+* Using enums for constans like element
+* Has to `export` them, so they can be used during initialization
+* Flexible interface: all params with `?`
+* Constructor with an empty object, so initialization can be done without any params
+* Merging passed parameters with the default values in constructor

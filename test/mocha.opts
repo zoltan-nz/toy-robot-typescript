@@ -4,3 +4,4 @@
 --compilers ts:ts-node/register
 --recursive
 --check-leaks
+--colors
