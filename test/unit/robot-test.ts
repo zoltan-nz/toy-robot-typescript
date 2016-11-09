@@ -27,4 +27,34 @@ describe('Robot', () => {
       expect(robot.direction).to.eq(Directions.EAST);
     });
   });
+
+  describe('#turnLeft', () => {
+    it('should turn the robot left', () => {
+      const robot: Robot = new Robot();
+      expect(robot.direction).to.eq(Directions.NORTH);
+
+      expect(robot.turnLeft()).to.eq(Directions.WEST);
+      expect(robot.direction).to.eq(Directions.WEST);
+
+      expect(robot.turnLeft()).to.eq(Directions.SOUTH);
+      expect(robot.direction).to.eq(Directions.SOUTH);
+
+      expect(robot.turnLeft()).to.eq(Directions.EAST);
+      expect(robot.turnLeft()).to.eq(Directions.NORTH);
+    });
+  });
+
+  describe('#turnRight', () => {
+    it('should turn the robot right', () => {
+      let robot2: Robot = new Robot();
+      expect(robot2.direction).to.eq(Directions.NORTH);
+
+      expect(robot2.turnRight()).to.eq(Directions.EAST);
+      expect(robot2.direction).to.eq(Directions.EAST);
+
+      expect(robot2.turnRight()).to.eq(Directions.SOUTH);
+      expect(robot2.turnRight()).to.eq(Directions.WEST);
+      expect(robot2.turnRight()).to.eq(Directions.NORTH);
+    });
+  });
 });

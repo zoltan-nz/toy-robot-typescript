@@ -20,4 +20,14 @@ export default class Robot {
     this.name = mergedOptions.name;
     this.direction = mergedOptions.direction;
   }
+
+  public turnLeft(): Directions {
+    const newDirection: Directions = this.direction === Directions.NORTH ? Directions.WEST : this.direction - 1;
+    return this.direction = newDirection;
+  }
+
+  public turnRight(): Directions {
+    const newDirection: Directions = this.direction === Directions.WEST ? Directions.NORTH : this.direction + 1;
+    return this.direction = newDirection;
+  }
 }

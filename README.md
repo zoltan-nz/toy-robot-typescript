@@ -193,7 +193,7 @@ TODO:
 
 - [x] Create a Table top class
 - [x] Draw table top in console
-- [ ] Create a Robot class
+- [x] Create a Robot class
 - [ ] Move robot on Table with arrow keys
 - [ ] Read the console for commands
 - [ ] Parsing commands and control robot
@@ -235,3 +235,9 @@ Implementation notes:
 * Flexible interface: all params with `?`
 * Constructor with an empty object, so initialization can be done without any params
 * Merging passed parameters with the default values in constructor
+
+### Debug Mocha with node --inspector
+
+```
+$ node --inspect --debug-brk node_modules/.bin/_mocha --watch
+```
