@@ -8,7 +8,7 @@ describe('Launching the application', () => {
     childProcess.execFile('node', ['lib/main.js'], (error, stdout, sterr) => {
       expect(error).to.be.null;
 
-      const aRow: string = '│ 0 │ 0 │ 0 │ 0 │ 0 │';
+      const aRow: string = '│  │  │  │  │  │';
       expect(stdout).to.be.contain(aRow);
       done();
     });

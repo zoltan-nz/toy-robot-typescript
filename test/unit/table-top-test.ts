@@ -1,6 +1,6 @@
+import Robot from '../../src/robot';
 import TableTop from '../../src/table-top';
 import { expect } from 'chai';
-import { flattenDeep, sum } from 'lodash';
 
 describe('TableTop', () => {
 
@@ -16,11 +16,14 @@ describe('TableTop', () => {
       expect(tableTop.content[0].length).to.be.equal(5);
     });
 
-    it('should contain only 0-s', () => {
-      const flattened = flattenDeep(tableTop.content);
-      const summarized = sum(flattened);
-
-      expect(summarized).to.be.eq(0);
+    it('should contain only null-s', () => {
+      tableTop.content = [
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+        [null, null, null, null, null],
+      ];
     });
   });
 
@@ -35,9 +38,9 @@ describe('TableTop', () => {
     });
   });
 
-  describe('#new with two params - new TableTop(8x3)', () => {
-    it('should create an 8x3 size matrix', () => {
-      const tableTop = new TableTop(8, 3);
+  describe('#new with two params - new TableTop(3x8)', () => {
+    it('should create an 3x8 size matrix', () => {
+      const tableTop = new TableTop(3, 8);
 
       expect(tableTop.width).to.be.eq(3);
       expect(tableTop.height).to.be.eq(8);
@@ -46,7 +49,7 @@ describe('TableTop', () => {
     });
   });
 
-  describe('#isBorder(y, x)', () => {
+  describe('#isBorder(x, y)', () => {
     it("should be false when not a border's coordinates", () => {
       const tableTop = new TableTop();
 
@@ -61,6 +64,30 @@ describe('TableTop', () => {
       expect(tableTop.isBorder(3, 0)).to.be.true;
       expect(tableTop.isBorder(4, 2)).to.be.true;
       expect(tableTop.isBorder(2, 4)).to.be.true;
+    });
+  });
+
+  describe('#set(x, y, robot?)', () => {
+    it('stores the robot on given coordinates', () => {
+      const tableTop: TableTop = new TableTop();
+      const robot: Robot = new Robot();
+
+      tableTop.set(0, 0, robot);
+
+      const firstRow = tableTop.content[0];
+      expect(firstRow).to.deep.equal([robot, null, null, null, null]);
+    });
+
+    describe('#get(x, y)', () => {
+      it('returns the actual value of a coordinate', () => {
+        const tableTop: TableTop = new TableTop();
+        const robot: Robot = new Robot();
+
+        expect(tableTop.get(3, 3)).to.be.null;
+
+        tableTop.set(3, 3, robot);
+        expect(tableTop.get(3, 3)).to.be.eq(robot);
+      });
     });
   });
 });

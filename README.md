@@ -241,3 +241,14 @@ Implementation notes:
 ```
 $ node --inspect --debug-brk node_modules/.bin/_mocha --watch
 ```
+### Moving robot
+
+* Where should store the actual position coordinates of a robot? Robot responsibility is direction and turning left/right only.
+* In our simplified example, Table class can store the state of a robot, however the best option if we have a Traffic manager, a controller, which can connect together our table with our robot... maybe later we would like to add more robot to our program.
+* Table instance can store: which coordinate is not empty and who is on that position.
+
+Additional TODO:
+* [x] Extend Table class for storing states
+* [ ] Creating TrafficController?
+* [ ] Having a Store singleton for storing instances and coordinate dependencies?
+ 
