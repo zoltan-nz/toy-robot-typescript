@@ -236,11 +236,18 @@ Implementation notes:
 * Constructor with an empty object, so initialization can be done without any params
 * Merging passed parameters with the default values in constructor
 
-### Debug Mocha with node --inspector
+### Debug 
 
-```
+Mocha with node --inspector
+```sh
 $ node --inspect --debug-brk node_modules/.bin/_mocha --watch
 ```
+
+Compiled lib/main.js
+```sh
+$ node --inspect --debug-brk lib/main
+```
+
 ### Moving robot
 
 * Where should store the actual position coordinates of a robot? Robot responsibility is direction and turning left/right only.
@@ -252,3 +259,43 @@ Additional TODO:
 * [ ] Creating TrafficController?
 * [ ] Having a Store singleton for storing instances and coordinate dependencies?
  
+### TTY and Readline notes
+
+```js
+import * as readline from 'readline';
+
+// Move the cursor top-left corner
+readline.cursorTo(process.stdout, 0, 0)
+
+// We can watch each keypress
+readline.emitKeypressEvents(process.stdin);
+
+// Clear the whole console
+readline.clearScreenDown(process.stdout);
+
+// Watching resize
+process.stout.on('resize', () => {
+      console.log(`${process.stdout.columns}x${process.stdout.rows}`);
+})
+
+// Watching keystrokes
+/* key: {
+ *   sequence: '',
+ *   name: '',
+ *   ctrl: false,
+ *   meta: false,
+ *   shift: false
+ * }
+ */
+process.stdin.on('keypress', (str, key) => {
+  if (key.ctrl && key.name === 'c') {
+    process.exit();
+  }
+  
+})
+```
+
+
+```
+
+Useful readings: https://www.joyent.com/node-js/production
