@@ -22,7 +22,8 @@
     "testOnly": "mocha",
     "prepublish": "npm test",
     "watch": "npm run build -- --watch",
-    "watch:test": "npm run test -- --watch"
+    "watch:test": "npm run test -- --watch",
+    "watch:launch": "nodemon lib/main"
   },
   "files": [
     "lib"
@@ -31,17 +32,18 @@
   "bin": "lib/main.js",
   "dependencies": {
     "cli-table2": "^0.2.0",
-    "lodash": "^4.16.6"
+    "lodash": "^4.17.2"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",
-    "@types/lodash": "^4.14.38",
-    "@types/mocha": "^2.2.32",
-    "@types/node": "^6.0.46",
+    "@types/lodash": "^4.14.39",
+    "@types/mocha": "^2.2.33",
+    "@types/node": "^6.0.48",
     "@types/sinon": "^1.16.31",
     "@types/sinon-chai": "^2.7.27",
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
+    "nodemon": "^1.11.0",
     "rimraf": "^2.5.4",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",

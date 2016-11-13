@@ -2,8 +2,8 @@
 import TableTop from './table-top';
 import Table = require('cli-table2');
 // import readline = require('readline');
-import * as readline from 'readline';
 import * as process from 'process';
+import * as readline from 'readline';
 
 declare module 'readline' {
   export function emitKeypressEvents(stream: NodeJS.ReadableStream, interface?: ReadLine): void;

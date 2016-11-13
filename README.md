@@ -121,8 +121,17 @@ In `package.json`:
     "test": "mocha --compilers ts:ts-node/register --recursive test/**/*-test.ts",
     "prepublish": "npm test",
     "watch": "npm run build -- --watch",
-    "watch:test": "npm run test -- --watch"
+    "watch:test": "npm run test -- --watch",
+    "watch:launch": "nodemon lib/main"
   },
+```
+
+### Relaunch application after code change
+
+```sh
+$ yarn global install nodemon
+
+$ nodemon lib/main
 ```
  
 ### Notes for type declaration
@@ -295,7 +304,39 @@ process.stdin.on('keypress', (str, key) => {
 })
 ```
 
+### Creating a ScreenWriter class for managing drawing
 
-```
+* [ ] should be a singleton
+* [ ] should 
 
 Useful readings: https://www.joyent.com/node-js/production
+
+### Notes about Streams
+
+Important: https://nodejs.org/api/stream.html#stream_types_of_streams
+
+Setup a stream from a `ChildProcess`:
+```js
+const mainApp: ChildProcess = childProcess.execFile('node', ['lib/main.js']);
+```
+
+Watch and read console content:
+```js
+mainApp.stdout.on('data', (data) => {
+  content = content + data;
+});
+```
+
+Watch end event:
+```js
+mainApp.stdout.on('end', () => {
+  const aRow: string = '│  │  │  │  │  │';
+  expect(content).to.contains(aRow);
+  done();
+});
+```
+
+Send a `ctrl-c` keystroke to the app:
+```js
+mainApp.stdin.write('\x03');
+```
