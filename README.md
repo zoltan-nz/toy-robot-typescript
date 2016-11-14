@@ -307,7 +307,8 @@ process.stdin.on('keypress', (str, key) => {
 ### Creating a ScreenWriter class for managing drawing
 
 * [ ] should be a singleton
-* [ ] should 
+* [ ] should write out given content
+* [ ] should clear the page
 
 Useful readings: https://www.joyent.com/node-js/production
 

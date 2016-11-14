@@ -16,7 +16,7 @@ export default class Table {
       || (y === this.height - 1);
   }
 
-  public set(x: number, y: number, robot?:Robot): Robot | null {
+  public set(x: number, y: number, robot?: Robot): Robot | null {
     return this.content[y][x] = robot || null;
   }
 
