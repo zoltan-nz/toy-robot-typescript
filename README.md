@@ -6,7 +6,6 @@ Practicing Typescript with the Toy Robot exercise.
 
 Great scaffolder: https://github.com/ospatil/generator-node-typescript
 
-
 ### Install packages
 
 Globals
@@ -57,6 +56,11 @@ $ yarn add --dev @types/chai @types/mocha @types/node @types/sinon-chai
   }
 }
 ```
+
+### Notes for type declaration
+
+* Doesn't need `typings`, because TypeScript 2 manages it automatically, however we have to install declaration file as node modules.
+* Search on: https://microsoft.github.io/TypeSearch/, for example search for `sinon-chai`.
 
 ### Setup `.vscode` shorthands
 
@@ -133,11 +137,6 @@ $ yarn global install nodemon
 
 $ nodemon lib/main
 ```
- 
-### Notes for type declaration
-
-* Doesn't need `typings`, because TypeScript 2 manages it automatically, however we have to install declaration file as node modules.
-* Search on: https://microsoft.github.io/TypeSearch/, for example search for `sinon-chai`.
 
 ### Test with mocha Notes
 
@@ -157,6 +156,12 @@ $ nodemon lib/main
 ```
 
 * `Chai` is a simple expectation library [web](http://chaijs.com/guide/styles/#expect)
+
+### Code coverage
+
+```sh
+$ yarn global add istanbul@^1.1.0-alpha.1
+```
 
 # Toy Robot Simulator
 
