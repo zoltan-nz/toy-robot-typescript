@@ -3,8 +3,9 @@
     "declaration": true,
     "outDir": "./lib",
     "sourceMap": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "module": "commonjs",
+    "target": "ES5",
     "moduleResolution": "node",
     "typeRoots": ["node_modules/@types", "@types"]
   },
@@ -16,5 +17,5 @@
     "node_modules",
     "**/*-test.ts"
   ],
-  "compileOnSave": true
+  "compileOnSave": false
 }

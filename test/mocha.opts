@@ -5,3 +5,5 @@
 --recursive
 --check-leaks
 --colors
+--bail
+./**/*-test.ts

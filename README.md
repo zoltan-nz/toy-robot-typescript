@@ -159,8 +159,39 @@ $ nodemon lib/main
 
 ### Code coverage
 
+https://github.com/istanbuljs/nyc
+
 ```sh
-$ yarn global add istanbul@^1.1.0-alpha.1
+$ yarn add --dev nyc
+```
+
+.nycrc
+```json
+{
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "typings",
+    "@types",
+    "node_modules",
+    "coverage",
+    ".nyc_output",
+    "lib",
+    "test/**/*.ts"
+  ],
+  "extension": [
+    ".ts"
+  ],
+  "require": [
+    "ts-node/register"
+  ],
+  "reporter": [
+    "json",
+    "html"
+  ],
+  "all": true
+}
 ```
 
 # Toy Robot Simulator

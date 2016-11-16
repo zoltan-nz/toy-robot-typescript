@@ -2,5 +2,5 @@ coverage/
 node_modules/
 .idea/
 lib
-.vscode
-coverage
+.vscode/
+.nyc_output/
