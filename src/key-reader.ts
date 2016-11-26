@@ -10,8 +10,10 @@ declare interface IKeys {
   shift: boolean;
 }
 
+// Missing type declaration in process.stdin
 const stdin = <tty.ReadStream> process.stdin;
 
+// Missing type declaration in readline package
 declare module 'readline' {
   export function emitKeypressEvents(stream: NodeJS.ReadableStream, interface?: ReadLine): void;
 }

@@ -138,7 +138,7 @@ $ yarn global install nodemon
 $ nodemon lib/main
 ```
 
-### Test with mocha Notes
+### Test with mocha
 
 * Mocha default test folder is `./test`
 * Settings can be saved in `mocha.opts`, so a simple `mocha` command can run all the test
@@ -377,3 +377,10 @@ Send a `ctrl-c` keystroke to the app:
 ```js
 mainApp.stdin.write('\x03');
 ```
+
+**Mocking stdout.write stream**
+
+An option could be... no luck...
+
+* https://www.npmjs.com/package/stdio-mock
+* https://github.com/TylorS/stdio-mock

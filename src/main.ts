@@ -7,7 +7,7 @@ import Table = require('cli-table2');
 export function main() {
 
   const screenWriter = ScreenWriter.getInstance();
-  KeyReader.getInstance();
+  // const keyReader = KeyReader.getInstance();
 
   const tableTop = new TableTop();
   let table = new Table();

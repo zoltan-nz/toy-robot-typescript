@@ -10,4 +10,10 @@ describe('ScreenWriter', () => {
       expect(instanceOne).to.eq(instanceTwo);
     });
   });
+
+  describe('#write', () => {
+    xit('TODO should write string on the screen', (done) => {
+    //  I tried more approach, no success yet... any idea?
+    });
+  });
 });

@@ -13,7 +13,7 @@
   "author": "Zoltan",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib .nyc-output coverage",
     "lint": "tslint --force \"src/**/*.ts\" \"test/**/*.ts\"",
     "prebuild": "npm run lint",
     "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty",
