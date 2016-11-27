@@ -342,9 +342,9 @@ process.stdin.on('keypress', (str, key) => {
 
 ### Creating a ScreenWriter class for managing drawing
 
-* [ ] should be a singleton
-* [ ] should write out given content
-* [ ] should clear the page
+* [x] should be a singleton
+* [x] should write out given content
+* [x] should clear the page
 
 Useful readings: https://www.joyent.com/node-js/production
 
@@ -380,7 +380,10 @@ mainApp.stdin.write('\x03');
 
 **Mocking stdout.write stream**
 
-An option could be... no luck...
-
 * https://www.npmjs.com/package/stdio-mock
 * https://github.com/TylorS/stdio-mock
+
+We can create a dummy Writable stream as a mock, overwrite the original process.stdout.write with this mock and we can watch the data on this mocked stream. We can test the diverted content.
+
+Finally, after refactoring ScreenWriter a little bit, actually adding an optional parameter to the constructor, we can inject the writable stream, so we can directly test on that injected stream.
+ 
