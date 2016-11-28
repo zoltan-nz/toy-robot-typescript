@@ -234,17 +234,22 @@ Example Input and Output:
 * `PLACE 0,0,NORTH LEFT REPORT` Output: `0,0,WEST`
 * `PLACE 1,2,EAST MOVE MOVE LEFT MOVE REPORT` Output: `3,3,NORTH`
 
-TODO:
+**High level TODO:**
 
 - [x] Create a Table top class
 - [x] Draw table top in console
 - [x] Create a Robot class
+- [ ] Input method 1: Command line parser
+- [ ] Input method 2: Keyboard shortcuts 
+- [ ] Place robot on a table
 - [ ] Move robot on Table with arrow keys
 - [ ] Read the console for commands
 - [ ] Parsing commands and control robot
+- [ ] Stream the table to a website with websocket
+- [ ] Control robot from the website also
 
 
-### Notes
+## Notes
 
 * Add lodash to the project
 * Useful lodash methods: flattenDeep, sum, fill
@@ -275,7 +280,7 @@ Requirements:
 
 Implementation notes:
 * Using interface for options
-* Using enums for constans like element
+* Using enums for constans
 * Has to `export` them, so they can be used during initialization
 * Flexible interface: all params with `?`
 * Constructor with an empty object, so initialization can be done without any params
@@ -300,9 +305,9 @@ $ node --inspect --debug-brk lib/main
 * Table instance can store: which coordinate is not empty and who is on that position.
 
 Additional TODO:
-* [x] Extend Table class for storing states
-* [ ] Creating TrafficController?
-* [ ] Having a Store singleton for storing instances and coordinate dependencies?
+- [x] Extend Table class for storing states
+- [ ] Creating TrafficController?
+- [ ] Having a Store singleton for storing instances and coordinate dependencies?
  
 ### TTY and Readline notes
 
@@ -342,9 +347,9 @@ process.stdin.on('keypress', (str, key) => {
 
 ### Creating a ScreenWriter class for managing drawing
 
-* [x] should be a singleton
-* [x] should write out given content
-* [x] should clear the page
+- [x] should be a singleton
+- [x] should write out given content
+- [x] should clear the page
 
 Useful readings: https://www.joyent.com/node-js/production
 
@@ -387,3 +392,23 @@ We can create a dummy Writable stream as a mock, overwrite the original process.
 
 Finally, after refactoring ScreenWriter a little bit, actually adding an optional parameter to the constructor, we can inject the writable stream, so we can directly test on that injected stream.
  
+### Controller
+
+Need a place where we can merge together robots with table, etc...
+
+Let's use the `main` method first and we can refactor later.
+
+- [ ] Place a robot on the table
+- [ ] Show that robot in console
+- [ ] Move that robot with keyboard arrows
+- [ ] Redraw the table after each move
+
+stdin https://github.com/sindresorhus/get-stdin/blob/master/index.js
+
+### Notes about Promise
+
+Option 1:
+Use native Promise if target is "es6"
+
+Option 2:
+Add @types/es6-promise if target is "es5"
