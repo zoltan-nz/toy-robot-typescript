@@ -344,6 +344,10 @@ process.stdin.on('keypress', (str, key) => {
   
 })
 ```
+TTY console exists only when the app run natively with node command. Using `nodemon` or `forever` run the app as a separate process, the console is not TTY anymore, so watching `keypress` is not a solution.
+
+Changing the requirement: using standard readline for sending commands, so there will be always an Enter at the end.
+(Secondary option to control with keystrokes... Interesting package: https://github.com/SBoudrias/Inquirer.js)
 
 ### Creating a ScreenWriter class for managing drawing
 
@@ -377,6 +381,9 @@ mainApp.stdout.on('end', () => {
   done();
 });
 ```
+
+* Watching `data` and `end` is an old way to manage Streams.
+* New way: `pipe` it or watch `readable` event and deal with the Buffer.
 
 Send a `ctrl-c` keystroke to the app:
 ```js
