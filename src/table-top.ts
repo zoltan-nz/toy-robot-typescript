@@ -1,5 +1,5 @@
+import { fill } from 'lodash';
 import Robot from './robot';
-import * as fill from 'lodash/fill';
 
 export default class Table {
 

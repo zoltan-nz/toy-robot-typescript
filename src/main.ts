@@ -7,15 +7,26 @@ import Table = require('cli-table2');
 export function main() {
 
   const screenWriter = ScreenWriter.getInstance();
-  KeyboardReader.getInstance();
 
   const tableTop = new TableTop();
   let table = new Table();
 
   tableTop.content.forEach(row => table.push(row));
 
-  // screenWriter.clear();
   screenWriter.write(table.toString());
+  // screenWriter.clear();
+
+  waitForNextKey().then(key => console.log(key));
+}
+
+async function waitForNextKey(): Promise<string> {
+  const keyboardReader = KeyboardReader.getInstance();
+
+  let newKey = '';
+  await keyboardReader.readNextKey().then((key) => {
+    newKey = key;
+  });
+  return newKey;
 }
 
 main();

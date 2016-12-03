@@ -13,6 +13,7 @@ declare interface IKeys {
 
 // Missing type declaration in process.stdin
 const stdin = <tty.ReadStream> process.stdin;
+const stdout = <tty.WriteStream> process.stdout;
 
 // Missing type declaration in readline package
 declare module 'readline' {
@@ -38,14 +39,11 @@ export default class KeyboardReader {
 
   private static instance: KeyboardReader;
 
-  private static exitWhenCtrlC(key: IKeys) {
-    if (key.ctrl && key.name === 'c') {
-      process.exit();
-    }
+  private static isCtrlC(key: IKeys): boolean {
+    return key.ctrl && key.name === 'c';
   }
 
-  public promise: Thenable<string>;
-  private keyPressed: PressedKeysStream;
+  private isTTY: boolean;
 
   constructor() {
     if (KeyboardReader.instance) {
@@ -54,36 +52,22 @@ export default class KeyboardReader {
 
     readline.emitKeypressEvents(stdin);
 
-    if (stdin.isTTY) {
-      console.log('yes it is stdin.TTY');
-      process.stdin.setRawMode(true);
-    } else {
-      console.log('NO TTY support');
+    // not TTY environment keypresses sent after hitting enter
+    this.isTTY = stdin.isTTY;
+
+    if (this.isTTY) {
+      stdin.setRawMode(true);
     }
-
-    this.keyPressed = new PressedKeysStream();
-
-    this.promise = new Promise((resolve, reject) => {
-      resolve('yey');
-      reject('no');
-    });
-
-    this.startWatching();
   }
 
-  private startWatching(): void {
+  public readNextKey(): Promise<string> {
 
-    process.stdin.on('data', (data) => console.log('data', data));
-
-    stdin.on('keypress', (data: string, key: IKeys) => {
-      process.stdout.write(`keypresssed ${key}`);
-      KeyboardReader.exitWhenCtrlC(key);
-    });
-
-    stdin.on('readable', () => {
-      console.log('readable');
-      this.keyPressed.push(stdin.read());
-      Promise.resolve(this.promise);
+    return new Promise((resolve, reject) => {
+      stdin.on('keypress', (data: string, key: IKeys) => {
+        console.log('key pressed', key);
+        if (KeyboardReader.isCtrlC(key)) reject(process.exit(0));
+        resolve(key.sequence);
+      });
     });
   }
 }
