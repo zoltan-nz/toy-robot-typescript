@@ -234,19 +234,11 @@ Example Input and Output:
 * `PLACE 0,0,NORTH LEFT REPORT` Output: `0,0,WEST`
 * `PLACE 1,2,EAST MOVE MOVE LEFT MOVE REPORT` Output: `3,3,NORTH`
 
-**High level TODO:**
+**TODO:**
 
 - [x] Create a Table top class
-- [x] Draw table top in console
 - [x] Create a Robot class
-- [ ] Input method 1: Command line parser
-- [ ] Input method 2: Keyboard shortcuts 
-- [ ] Place robot on a table
-- [ ] Move robot on Table with arrow keys
-- [ ] Read the console for commands
-- [ ] Parsing commands and control robot
-- [ ] Stream the table to a website with websocket
-- [ ] Control robot from the website also
+- [ ] Command line parser
 
 
 ## Notes
