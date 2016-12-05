@@ -33,7 +33,6 @@
   "bin": "lib/main.js",
   "dependencies": {
     "@types/es6-promise": "0.0.32",
-    "cli-table2": "^0.2.0",
     "lodash": "^4.17.2"
   },
   "devDependencies": {

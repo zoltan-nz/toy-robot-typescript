@@ -411,3 +411,8 @@ Use native Promise if target is "es6"
 
 Option 2:
 Add @types/es6-promise if target is "es5"
+
+### Command Line parser
+
+1. Loop until quit command
+2. Do what the command say
