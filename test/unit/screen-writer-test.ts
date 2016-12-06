@@ -1,6 +1,6 @@
-import ScreenWriter from '../../src/screen-writer';
 import { expect } from 'chai';
 import { MockWritable, stdio } from 'stdio-mock';
+import ScreenWriter from '../../src/screen-writer';
 
 describe('ScreenWriter', () => {
 
@@ -23,7 +23,7 @@ describe('ScreenWriter', () => {
       const writerMock = new MockWritable();
       const message = 'hello world';
 
-      writerMock.on('data', data => {
+      writerMock.on('data', (data) => {
         expect(data).to.eq(message);
         done();
       });
@@ -38,7 +38,7 @@ describe('ScreenWriter', () => {
       const writerMock = new MockWritable();
       const expected = '\u001b[1;1H'; // Clear screen escape chars
 
-      writerMock.on('data', data => {
+      writerMock.on('data', (data) => {
         expect(data).to.eq(expected);
         done();
       });

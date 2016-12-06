@@ -2,7 +2,7 @@ export const enum Directions {
   NORTH,
   EAST,
   SOUTH,
-  WEST
+  WEST,
 }
 
 export interface IRobotOptions {

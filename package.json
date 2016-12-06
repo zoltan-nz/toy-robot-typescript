@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "repository": {
-    "url": "git+https://github.com/zoltan-nz/toy-robot-node",
+    "url": "git+https://github.com/zoltan-nz/toy-robot-typescript",
     "type": "git"
   },
   "homepage": "",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf lib .nyc-output coverage",
-    "lint": "tslint --force \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "tslint --force --fix \"src/**/*.ts\" \"test/**/*.ts\"",
     "prebuild": "npm run lint",
     "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty",
     "pretest": "npm run build",

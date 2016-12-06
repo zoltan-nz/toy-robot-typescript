@@ -1,6 +1,6 @@
+import { expect } from 'chai';
 import { Directions, IRobotOptions } from '../../src/robot';
 import Robot from '../../src/robot';
-import { expect } from 'chai';
 
 describe('Robot', () => {
   describe('#new', () => {

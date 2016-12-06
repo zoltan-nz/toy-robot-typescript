@@ -1,6 +1,6 @@
+import { expect } from 'chai';
 import Robot from '../../src/robot';
 import TableTop from '../../src/table-top';
-import { expect } from 'chai';
 
 describe('TableTop', () => {
 
