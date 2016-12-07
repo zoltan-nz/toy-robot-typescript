@@ -29,7 +29,7 @@ export default class CommandLine {
       this.rl.on('line', (line) => {
         resolve(line);
       });
-      this.rl.on('error', (error) => reject(error));
+      this.rl.on('error', (error: Error) => reject(error));
     });
   }
 }

@@ -198,9 +198,9 @@ $ yarn add --dev nyc
 
 [Original example](https://github.com/DiscoverRedwolf/toyrobot)
 
-A toy robot moving on a square tabletop.
-Table top dimensions: 5 units x 5 units.
-Robot cannot move out from the tabletop.
+- A toy robot moving on a square tabletop.
+- Table top dimensions: 5 units x 5 units.
+- Robot cannot move out from the tabletop.
 
 Commands:
 
@@ -233,13 +233,6 @@ Example Input and Output:
 * `PLACE 0,0,NORTH MOVE REPORT` Output: `0,1,NORTH`
 * `PLACE 0,0,NORTH LEFT REPORT` Output: `0,0,WEST`
 * `PLACE 1,2,EAST MOVE MOVE LEFT MOVE REPORT` Output: `3,3,NORTH`
-
-**TODO:**
-
-- [x] Create a Table top class
-- [x] Create a Robot class
-- [ ] Command line parser
-
 
 ## Notes
 
@@ -294,12 +287,7 @@ $ node --inspect --debug-brk lib/main
 
 * Where should store the actual position coordinates of a robot? Robot responsibility is direction and turning left/right only.
 * In our simplified example, Table class can store the state of a robot, however the best option if we have a Traffic manager, a controller, which can connect together our table with our robot... maybe later we would like to add more robot to our program.
-* Table instance can store: which coordinate is not empty and who is on that position.
-
-Additional TODO:
-- [x] Extend Table class for storing states
-- [ ] Creating TrafficController?
-- [ ] Having a Store singleton for storing instances and coordinate dependencies?
+* Table instance can store: which coordinate is not empty and who is on that position. (out of scope)
  
 ### TTY and Readline notes
 
@@ -397,11 +385,6 @@ Need a place where we can merge together robots with table, etc...
 
 Let's use the `main` method first and we can refactor later.
 
-- [ ] Place a robot on the table
-- [ ] Show that robot in console
-- [ ] Move that robot with keyboard arrows
-- [ ] Redraw the table after each move
-
 stdin https://github.com/sindresorhus/get-stdin/blob/master/index.js
 
 ### Notes about Promise
@@ -416,3 +399,12 @@ Add @types/es6-promise if target is "es5"
 
 1. Loop until quit command
 2. Do what the command say
+
+#TODO
+
+- [x] Create a Table top class
+- [x] Create a Robot class
+- [ ] Controller connect together Table with Robot
+- [ ] Command line parser
+
+Probably a better option if the robot knows about its position

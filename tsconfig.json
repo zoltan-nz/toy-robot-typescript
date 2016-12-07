@@ -2,8 +2,9 @@
   "compilerOptions": {
     "declaration": true,
     "outDir": "./lib",
+    "baseUrl": "./src",
     "sourceMap": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "module": "commonjs",
     "target": "ES5",
     "moduleResolution": "node",

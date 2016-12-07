@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 import { ReadLine } from 'readline';
+import Command from './command';
 import CommandLine from './command-line';
 import Controller from './controller';
 import Robot from './robot';
 import ScreenWriter from './screen-writer';
 import TableTop from './table-top';
-
 export function main() {
 
   const screenWriter = ScreenWriter.getInstance();
@@ -15,8 +15,6 @@ export function main() {
 
   const commandLine = new CommandLine();
   const controller = Controller.getInstance({table, robot});
-
-  commandLine.nextCommand().then((command) => controller.execute(command));
 }
 
 main();

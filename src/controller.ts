@@ -1,3 +1,4 @@
+import Command from "command";
 import Robot from './robot';
 import TableTop from './table-top';
 
@@ -21,7 +22,7 @@ export default class Controller {
     }
   }
 
-  public execute(command) {
+  public execute(command: Command) {
 
   }
 }
