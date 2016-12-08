@@ -1,26 +1,22 @@
 import { fill } from 'lodash';
-import Robot from './robot';
+
+export interface IPosition {
+  x: number;
+  y: number;
+}
 
 export default class Table {
 
-  public content: Robot[][];
+  public content: Number[][];
 
   constructor(public width: number = 5, public height: number = width) {
-    this.content = fill(Array(height), fill(Array(width), null));
+    this.content = fill(Array(height), fill(Array(width), 0));
   }
 
-  public isBorder(x: number, y: number): boolean {
-    return (x === 0)
-      || (x === this.width - 1)
-      || (y === 0)
-      || (y === this.height - 1);
-  }
-
-  public set(x: number, y: number, robot?: Robot): Robot | null {
-    return this.content[y][x] = robot || null;
-  }
-
-  public get(x: number, y: number): Robot | null {
-    return this.content[y][x];
+  public isBorder(pos: IPosition): boolean {
+    return (pos.x === 0)
+      || (pos.x === this.width - 1)
+      || (pos.y === 0)
+      || (pos.y === this.height - 1);
   }
 }

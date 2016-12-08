@@ -2,21 +2,23 @@
   "compilerOptions": {
     "declaration": true,
     "outDir": "./lib",
-    "baseUrl": "./src",
+    "baseUrl": "./src/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "ES5",
     "moduleResolution": "node",
-    "typeRoots": ["node_modules/@types", "@types"]
+    "typeRoots": [
+      "node_modules/@types",
+      "@types"
+    ]
   },
   "include": [
-    "src/**/*",
-    "declarations"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
     "**/*-test.ts"
   ],
-  "compileOnSave": false
+  "compileOnSave": true
 }

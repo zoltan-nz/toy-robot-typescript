@@ -4,33 +4,19 @@ import Robot from '../../src/robot';
 
 describe('Robot', () => {
   describe('#new', () => {
-    it('should be initialized with default values without params', () => {
-      const robot: Robot = new Robot();
-
-      expect(robot.name).to.eq('Robot');
-      expect(robot.direction).to.eq(Directions.NORTH);
-    });
-
     it('should be initialized with the given params', () => {
-      const options: IRobotOptions = { direction: Directions.SOUTH, name: 'Roby' };
+      const options: IRobotOptions = { position: {x: 3, y: 3}, direction: Directions.SOUTH};
       const robot: Robot = new Robot(options);
 
-      expect(robot.name).to.eq('Roby');
+      expect(robot.toString()).to.eq('3, 3, 2');
       expect(robot.direction).to.eq(Directions.SOUTH);
-    });
-
-    it('should be initialized with the mix of given param and default param', () => {
-      const options: IRobotOptions = { direction: Directions.EAST };
-      const robot: Robot = new Robot(options);
-
-      expect(robot.name).to.eq('Robot');
-      expect(robot.direction).to.eq(Directions.EAST);
     });
   });
 
   describe('#turnLeft', () => {
     it('should turn the robot left', () => {
-      const robot: Robot = new Robot();
+      const options: IRobotOptions = { position: {x: 3, y: 3}, direction: Directions.NORTH};
+      const robot: Robot = new Robot(options);
       expect(robot.direction).to.eq(Directions.NORTH);
 
       expect(robot.turnLeft()).to.eq(Directions.WEST);
@@ -46,7 +32,8 @@ describe('Robot', () => {
 
   describe('#turnRight', () => {
     it('should turn the robot right', () => {
-      let robot2: Robot = new Robot();
+      const options: IRobotOptions = { position: {x: 3, y: 3}, direction: Directions.NORTH};
+      let robot2: Robot = new Robot(options);
       expect(robot2.direction).to.eq(Directions.NORTH);
 
       expect(robot2.turnRight()).to.eq(Directions.EAST);

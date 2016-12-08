@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import Robot from '../../src/robot';
 import TableTop from '../../src/table-top';
 
 describe('TableTop', () => {
@@ -14,16 +13,6 @@ describe('TableTop', () => {
       expect(tableTop.height).to.be.eq(5);
       expect(tableTop.content.length).to.be.equal(5);
       expect(tableTop.content[0].length).to.be.equal(5);
-    });
-
-    it('should contain only null-s', () => {
-      tableTop.content = [
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-        [null, null, null, null, null],
-      ];
     });
   });
 
@@ -52,42 +41,26 @@ describe('TableTop', () => {
   describe('#isBorder(x, y)', () => {
     it("should be false when not a border's coordinates", () => {
       const tableTop = new TableTop();
+      const pos = {x: 3, y: 3};
 
-      expect(tableTop.isBorder(3, 3)).to.be.false;
+      expect(tableTop.isBorder(pos)).to.be.false;
     });
 
     it("should be true when a border's coordinates", () => {
       const tableTop = new TableTop();
 
-      expect(tableTop.isBorder(0, 0)).to.be.true;
-      expect(tableTop.isBorder(0, 3)).to.be.true;
-      expect(tableTop.isBorder(3, 0)).to.be.true;
-      expect(tableTop.isBorder(4, 2)).to.be.true;
-      expect(tableTop.isBorder(2, 4)).to.be.true;
-    });
-  });
-
-  describe('#set(x, y, robot?)', () => {
-    it('stores the robot on given coordinates', () => {
-      const tableTop: TableTop = new TableTop();
-      const robot: Robot = new Robot();
-
-      tableTop.set(0, 0, robot);
-
-      const firstRow = tableTop.content[0];
-      expect(firstRow).to.deep.equal([robot, null, null, null, null]);
+      expect(tableTop.isBorder({x: 0, y: 0})).to.be.true;
+      expect(tableTop.isBorder({x: 0, y: 3})).to.be.true;
+      expect(tableTop.isBorder({x: 3, y: 0})).to.be.true;
+      expect(tableTop.isBorder({x: 4, y: 2})).to.be.true;
+      expect(tableTop.isBorder({x: 2, y: 4})).to.be.true;
     });
 
-    describe('#get(x, y)', () => {
-      it('returns the actual value of a coordinate', () => {
-        const tableTop: TableTop = new TableTop();
-        const robot: Robot = new Robot();
+    it('should be false when not border coordinates', () => {
+      const tableTop = new TableTop();
 
-        expect(tableTop.get(3, 3)).to.be.null;
-
-        tableTop.set(3, 3, robot);
-        expect(tableTop.get(3, 3)).to.be.eq(robot);
-      });
+      expect(tableTop.isBorder({x: 1, y: 1})).to.be.false;
+      expect(tableTop.isBorder({x: 3, y: 3})).to.be.false;
     });
   });
 });

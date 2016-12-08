@@ -1,20 +1,22 @@
 #!/usr/bin/env node
-
-import { ReadLine } from 'readline';
-import Command from './command';
-import CommandLine from './command-line';
+import * as process from 'process';
+import { createInterface, ReadLineOptions } from 'readline';
 import Controller from './controller';
-import Robot from './robot';
-import ScreenWriter from './screen-writer';
 import TableTop from './table-top';
-export function main() {
+const table = new TableTop();
+const controller = new Controller(table);
 
-  const screenWriter = ScreenWriter.getInstance();
-  const table = new TableTop();
-  const robot = new Robot();
+const options: ReadLineOptions = {
+  input: process.stdin,
+  output: process.stdout,
+  terminal: false,
+};
 
-  const commandLine = new CommandLine();
-  const controller = Controller.getInstance({table, robot});
-}
+const rl = createInterface(options);
 
-main();
+rl.prompt(true);
+
+rl.on('line', (line: string) => {
+  controller.execute(line);
+  rl.prompt(true);
+});

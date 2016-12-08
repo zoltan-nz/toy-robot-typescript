@@ -1,28 +1,38 @@
-import Command from "command";
 import Robot from './robot';
-import TableTop from './table-top';
+import { Directions } from './robot';
+import Table from './table-top';
 
-export interface IController {
-  table: TableTop;
-  robot: Robot;
-}
+export default class Command {
 
-export default class Controller {
+  private robot: Robot;
+  private table: Table;
 
-  public static getInstance(models: IController): Controller {
-    Controller.instance = Controller.instance || new Controller(models);
-    return Controller.instance;
+  constructor(table: Table) {
+    this.table = table;
   }
 
-  private static instance: Controller;
+  public execute(command: string): void {
 
-  constructor(models: IController) {
-    if (Controller.instance) {
-      throw new Error('Error - use ScreenWriterController..getInstance()');
+    if (this.robot) {
+      switch (command) {
+        case 'LEFT':
+          this.robot.turnLeft();
+          break;
+        case 'RIGHT':
+          this.robot.turnRight();
+          break;
+        case 'MOVE':
+          this.robot.move();
+          break;
+        case 'REPORT':
+          console.log(this.robot.toString());
+          break;
+        default:
+      }
     }
-  }
 
-  public execute(command: Command) {
-
+    if (command === 'PLACE' && !this.robot) {
+      this.robot = new Robot({position: {x: 3, y: 3}, direction: Directions.EAST});
+    }
   }
 }
