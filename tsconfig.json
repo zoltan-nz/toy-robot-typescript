@@ -3,6 +3,7 @@
     "declaration": true,
     "outDir": "./lib",
     "baseUrl": "./src/",
+    "lib": ["dom", "es2015.promise", "es5"],
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",

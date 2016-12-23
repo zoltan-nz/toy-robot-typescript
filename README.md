@@ -2,6 +2,35 @@
 
 Practicing Typescript with the Toy Robot exercise.
 
+## How to run this project?
+
+Please, use Node.js v6 and install `yarn` as package manager.
+
+```shell
+$ yarn
+$ yarn start
+```
+
+**For development**, run the following commands in separate shells.
+
+```shell
+$ yarn watch
+```
+
+```shell
+$ yarn watch:launch
+```
+
+```shell
+$ yarn watch:test
+```
+
+**Coverage report**
+
+```shell
+$ yarn test:coverage
+```
+
 ## Ideal development environment
 
 Great scaffolder: https://github.com/ospatil/generator-node-typescript
@@ -104,31 +133,40 @@ $ yarn add --dev @types/chai @types/mocha @types/node @types/sinon-chai
 
 ### Add script to package.json
 
+Reading: `npm help scripts`
+
 ```
-$ npm run clean
-$ npm run lint
-$ npm run build
-$ npm run test
-$ npm run watch
-$ npm run watch:test
+$ yarn run clean
+$ yarn lint
+$ yarn build
+$ yarn test
+$ yarn watch
+$ yarn watch:test
+$ yarn watch:launch
 ```
 
 In `package.json`:
 
 ```json
-  "scripts": {
-    "clean": "rimraf lib",
-    "lint": "tslint --force \"src/**/*.ts\" \"test/**/*.ts\"",
-    "prebuild": "npm run lint",
-    "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty",
-    "pretest": "npm run build",
-    "test": "mocha --compilers ts:ts-node/register --recursive test/**/*-test.ts",
-    "prepublish": "npm test",
-    "watch": "npm run build -- --watch",
-    "watch:test": "npm run test -- --watch",
-    "watch:launch": "nodemon lib/main"
+"scripts": {
+    "clean": "rimraf lib .nyc-output coverage",
+    "lint": "tslint --force --fix \"src/**/*.ts\" \"test/**/*.ts\"",
+    "prebuild": "yarn lint",
+    "build": "yarn run clean && echo Using TypeScript && tsc --version && tsc --pretty",
+    "pretest": "yarn build",
+    "test": "mocha",
+    "testOnly": "mocha",
+    "test:coverage": "nyc yarn test && open coverage/index.html",
+    "prepublish": "yarn test",
+    "watch": "yarn build -- --watch",
+    "watch:test": "yarn test -- --watch",
+    "watch:launch": "nodemon lib/main",
+    "prestart": "yarn build",
+    "start": "node ./lib/main"
   },
 ```
+
+We can install as a command line line tool: `npm install -g .`
 
 ### Relaunch application after code change
 
@@ -404,7 +442,7 @@ Add @types/es6-promise if target is "es5"
 
 - [x] Create a Table top class
 - [x] Create a Robot class
-- [ ] Controller connect together Table with Robot
-- [ ] Command line parser
+- [x] Controller connect together Table with Robot
+- [x] Command line parser
 
 Probably a better option if the robot knows about its position

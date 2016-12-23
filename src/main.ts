@@ -6,13 +6,15 @@ import TableTop from './table-top';
 const table = new TableTop();
 const controller = new Controller(table);
 
-const options: ReadLineOptions = {
+const rlOptions: ReadLineOptions = {
   input: process.stdin,
   output: process.stdout,
   terminal: false,
 };
 
-const rl = createInterface(options);
+process.stdout.write('Valid commands: PLACE, LEFT, RIGHT, MOVE, REPORT.\n');
+
+const rl = createInterface(rlOptions);
 
 rl.prompt(true);
 

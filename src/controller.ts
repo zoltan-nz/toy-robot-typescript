@@ -1,3 +1,4 @@
+import * as process from 'process';
 import Robot from './robot';
 import { Directions } from './robot';
 import Table from './table-top';
@@ -25,7 +26,7 @@ export default class Command {
           this.robot.move();
           break;
         case 'REPORT':
-          console.log(this.robot.toString());
+          process.stdout.write(this.robot.toString() + '\n');
           break;
         default:
       }

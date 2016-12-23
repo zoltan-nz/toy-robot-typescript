@@ -1,6 +1,6 @@
 {
   "name": "toy-robot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "repository": {
     "url": "git+https://github.com/zoltan-nz/toy-robot-typescript",
@@ -15,49 +15,50 @@
   "scripts": {
     "clean": "rimraf lib .nyc-output coverage",
     "lint": "tslint --force --fix \"src/**/*.ts\" \"test/**/*.ts\"",
-    "prebuild": "npm run lint",
-    "build": "npm run clean && echo Using TypeScript && tsc --version && tsc --pretty",
-    "pretest": "npm run build",
+    "prebuild": "yarn lint",
+    "build": "yarn run clean && echo Using TypeScript && tsc --version && tsc --pretty",
+    "pretest": "yarn build",
     "test": "mocha",
     "testOnly": "mocha",
-    "test:coverage": "nyc npm run test && open coverage/index.html",
-    "prepublish": "npm test",
-    "watch": "npm run build -- --watch",
-    "watch:test": "npm run test -- --watch",
+    "test:coverage": "nyc yarn test && open coverage/index.html",
+    "prepublish": "yarn test",
+    "watch": "yarn build -- --watch",
+    "watch:test": "yarn test -- --watch",
     "watch:launch": "nodemon lib/main",
-    "prestart": "npm run build",
+    "prestart": "yarn build",
     "start": "node ./lib/main"
   },
   "files": [
     "lib"
   ],
   "main": "lib/main.js",
-  "bin": "lib/main.js",
+  "bin": {
+    "toy-robot": "./lib/main.js"
+  },
   "dependencies": {
-    "@types/es6-promise": "0.0.32",
-    "lodash": "^4.17.2"
+    "lodash": "latest"
   },
   "devDependencies": {
-    "@types/chai": "^3.4.34",
-    "@types/lodash": "^4.14.39",
-    "@types/mocha": "^2.2.33",
-    "@types/node": "^6.0.48",
-    "@types/sinon": "^1.16.31",
-    "@types/sinon-chai": "^2.7.27",
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.15",
-    "mocha": "^3.1.2",
-    "nodemon": "^1.11.0",
-    "nyc": "^10.0.0",
-    "rimraf": "^2.5.4",
-    "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0",
-    "stdio-mock": "^1.0.1",
-    "ts-node": "^1.7.2",
-    "tslint": "^4.0.2",
-    "typescript": "^2.1.4"
+    "@types/chai": "latest",
+    "@types/lodash": "latest",
+    "@types/mocha": "latest",
+    "@types/node": "latest",
+    "@types/sinon": "latest",
+    "@types/sinon-chai": "latest",
+    "chai": "latest",
+    "coveralls": "latest",
+    "mocha": "latest",
+    "nodemon": "latest",
+    "nyc": "latest",
+    "rimraf": "latest",
+    "sinon": "latest",
+    "sinon-chai": "latest",
+    "stdio-mock": "latest",
+    "ts-node": "latest",
+    "tslint": "latest",
+    "typescript": "latest"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   }
 }
