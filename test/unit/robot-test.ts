@@ -33,7 +33,7 @@ describe('Robot', () => {
   describe('#turnRight', () => {
     it('should turn the robot right', () => {
       const options: IRobotOptions = { position: {x: 3, y: 3}, direction: Directions.NORTH};
-      let robot2: Robot = new Robot(options);
+      const robot2: Robot = new Robot(options);
       expect(robot2.direction).to.eq(Directions.NORTH);
 
       expect(robot2.turnRight()).to.eq(Directions.EAST);
